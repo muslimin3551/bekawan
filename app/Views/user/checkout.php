@@ -62,7 +62,7 @@
                     <hr>
                     <p>Note:</p>
                     <p>
-                        payment is only available by bank transfer method to <strong>BCA account number 123456</strong> after payment is made go to the transaction menu and confirm payment by uploading proof of payment.
+                        payment is only available by bank transfer method to <strong>BCA account number <span class="badge bg-primary">8840773265</span></strong> after payment is made go to the transaction menu and confirm payment by uploading proof of payment.
                     </p>
                     <!-- Add more order summary details as needed -->
                 </div>

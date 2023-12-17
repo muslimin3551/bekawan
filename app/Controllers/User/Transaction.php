@@ -17,7 +17,7 @@ class Transaction extends BaseController
             return redirect()->to('login');
         } else {
             $transaction = new HasMembershipModel();
-            $data['transactions'] = $transaction->where('is_deleted', 0)->findAll();
+            $data['transactions'] = $transaction->where('is_deleted', 0)->where('user_id', session()->get('id'))->findAll();
             $data['title'] = 'transaction';
             return view('user/transaction', $data);
         }

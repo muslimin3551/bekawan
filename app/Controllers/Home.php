@@ -98,8 +98,8 @@ class Home extends BaseController
 
         $email = \Config\Services::email($config);
 
-        $email->setFrom('system@bekawan.my.id', 'bekawan');
-        $email->setTo($userEmail); // Use the renamed variable
+        $email->setFrom($userEmail, $name);
+        $email->setTo('kawanbkone@gmail.com'); // Use the renamed variable
         $email->setSubject($subject);
         $email->setMessage($content);
 

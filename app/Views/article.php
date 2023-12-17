@@ -119,11 +119,13 @@
                                 <?php foreach ($articles as $article) { ?>
                                     <div class="col-md-4 mb-4">
                                         <div class="card h-100 shadow">
-                                            <img src="<?= base_url('/uploads/article/') . $article['photo'] ?>" alt="Article Image" class="card-img-top">
+                                            <img src="<?= base_url('/uploads/article/') . $article['photo'] ?>" alt="Article Image" class="card-img-top" style="height: 300px;">
                                             <div class="card-body">
                                                 <h5 class="card-title"><?= $article['title'] ?></h5>
                                                 <p class="card-text"><?= $article['sort_description'] ?></p>
-                                                <a href="<?= base_url('/article/') . $article['id'] ?>" class="btn btn-primary">Read More</a>
+                                            </div>
+                                            <div class="card-footer">
+                                                <a href="<?= base_url('/article/') . $article['id'] ?>" class="btn btn-primary w-100">Read More</a>
                                             </div>
                                         </div>
                                     </div>

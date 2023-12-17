@@ -40,11 +40,15 @@ class Membership extends BaseController
                 ->first();
 
             // Calculate remaining days
-            $endDate = new \DateTime($hasMembership['end_date']);
-            $today = new \DateTime();
-            $remainingDays = $today->diff($endDate)->days;
+            if ($hasMembership) {
+                $endDate = new \DateTime($hasMembership['end_date']);
+                $today = new \DateTime();
+                $remainingDays = $today->diff($endDate)->days;
+            } else {
+                $remainingDays = 0;
+            }
             // Check if membership is active
-            $data['has_membership'] = ($remainingDays >= 0) ? true : false;
+            $data['has_membership'] = ($remainingDays > 0) ? true : false;
             $data['counselors'] = $counselors->where('is_deleted', 0)->where('role', 2)->findAll();
             $data['user'] = $user->where('id', session()->get('id'))->first();
             $data['title'] = 'CHECKOUT';
@@ -80,7 +84,7 @@ class Membership extends BaseController
             ];
 
             $today = date('Y-m-d H:i:s');
-            if ($this->request->getVar('membership_id') == 1) {
+            if ($this->request->getVar('membership_id') == 3) {
                 $end_date = date('Y-m-d H:i:s', strtotime($today . ' + 30 days'));
             } elseif ($this->request->getVar('membership_id') == 2) {
                 $end_date = date('Y-m-d H:i:s', strtotime($today . ' + 14 days'));
@@ -91,14 +95,16 @@ class Membership extends BaseController
             if ($this->validate($rules)) {
 
                 $model = new HasMembershipModel();
-                //update Has membership status 4 to 5 if expired
-                $data = [
-                    'updated_at' => date('Y-m-d H:i:s'),
-                    'status' => 5,
-                ];
+                $order_previous_data = $model->where('status', 4)->where('user_id', $this->request->getVar('user_id'))->first();
+                if ($order_previous_data) {
+                    //update Has membership status 4 to 5 if expired
+                    $data = [
+                        'updated_at' => date('Y-m-d H:i:s'),
+                        'status' => 5,
+                    ];
 
-                $model->where('status', 4)->where('user_id', $this->request->getVar('user_id'))->update($data);
-
+                    $model->where('status', 4)->where('user_id', $this->request->getVar('user_id'))->update($data);
+                }
                 $data = [
                     'user_id'            => $this->request->getVar('user_id'),
                     'konselor_id'        => $this->request->getVar('konselor_id'),

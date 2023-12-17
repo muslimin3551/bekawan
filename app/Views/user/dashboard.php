@@ -15,7 +15,7 @@
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-12 text-center">
                                     <p>Paid</p>
                                     <hr>
-                                    <p>Rp 112.000</p>
+                                    <p><?= $paid_count ?> Transaction</p>
                                 </div>
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-12 text-center">
                                     <p>Payment Confirmation</p>
                                     <hr>
-                                    <p>Rp 112.000</p>
+                                    <p><?= $payment_confirmation_count ?> Transaction</p>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-12 text-center">
                                     <p>Admin Confirmation</p>
                                     <hr>
-                                    <p>Rp 112.000</p>
+                                    <p><?= $admin_confirmation_count ?> Transaction</p>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-12 text-center">
                                     <p>Payment Failed</p>
                                     <hr>
-                                    <p>Rp 112.000</p>
+                                    <p><?= $failed_count ?> Transaction</p>
                                 </div>
                             </div>
                         </div>

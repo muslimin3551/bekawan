@@ -47,7 +47,16 @@
                                             <?php } ?>
                                         </td>
                                         <td>
-                                            <a href="<?= base_url('payment/' . $item['id']) ?>" class="btn btn-sm btn-outline-success m-1">Payment Confirmation</a>
+                                            <?php if ($item['status'] == 1) { ?>
+                                                <a href="<?= base_url('payment/' . $item['id']) ?>" class="btn btn-sm btn-outline-success m-1">Payment Confirmation</a>
+                                            <?php } elseif ($item['status'] == 2) { ?>
+                                                No Action Need
+                                            <?php } elseif ($item['status'] == 3) { ?>
+                                                No Action Need
+                                            <?php } elseif ($item['status'] == 5) { ?>
+                                            <?php } else { ?>
+                                                No Action Need
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 <?php } ?>

@@ -25,9 +25,7 @@
             <header class="mb-5">
                 <div class="header-top">
                     <div class="container">
-                        <div class="logo">
-                            <a href="index.html"><img src="<?= base_url('/admin/assets/compiled/svg/logo.svg') ?>" alt="Logo"></a>
-                        </div>
+                        <h4>Bekawan.my.id</h4>
                         <div class="header-top-right">
 
                             <div class="dropdown">
